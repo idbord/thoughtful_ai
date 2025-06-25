@@ -21,7 +21,7 @@ Args:
 Returns:
     bool: True if the package is heavy (mass >= MAXIMUM_MASS), False otherwise.
 """
-def isHeavy(mass: float) -> bool:
+def isHeavy(mass: float | int) -> bool:
     return mass >= MAXIMUM_MASS
 
 """
@@ -37,7 +37,7 @@ Args:
 Returns:
     bool: True if the package is bulky, False otherwise.
 """
-def isBulky(width: float, height: float, length: float) -> bool:
+def isBulky(width: float | int, height: float | int, length: float | int) -> bool:
     if width >= 150 or height >= 150 or length >= 150:
         return True
 
@@ -62,7 +62,7 @@ Raises:
     ValueError: If any dimension or mass is not a number, or if any dimension
                 or mass is less than or equal to zero.
 """
-def sort(width: float, height: float, length: float, mass: float) -> str:
+def sort(width: float | int, height: float | int, length: float | int, mass: float | int) -> str:
     # Make sure all values are numbers and greater than zero
     if not isinstance(width, (int, float)) or not isinstance(height, (int, float)) or not isinstance(length, (int, float)) or not isinstance(mass, (int, float)):
         raise ValueError(ERROR_INPUT_TYPE)
